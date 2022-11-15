@@ -18,9 +18,22 @@ public:
 	TSubclassOf<class UUserWidget> ScoreTextWidget;
 	TWeakObjectPtr<class UUserWidget> pScoreTextWidget;
 	TWeakObjectPtr<class UTextBlock> pScoreText;
+	TWeakObjectPtr<class UTextBlock> pBulletText;
+	TWeakObjectPtr<class UTextBlock> pPullsText;
+	TWeakObjectPtr<class UTextBlock> pTimerText;
+	TWeakObjectPtr<class UTextBlock> pGameOverText;
 
 	UFUNCTION(BlueprintCallable, Category= "Score")
 	void IncreaseScore(int amount);
+
+	UFUNCTION(BlueprintCallable, Category= "Score")
+	void DecreaseBullets();
+
+	UFUNCTION(BlueprintCallable, Category= "Score")
+	void ResetBullets();
+
+	UFUNCTION(BlueprintCallable, Category= "Score")
+	int GetScore() const;
 
 protected:
 	// Called when the game starts or when spawned
@@ -32,5 +45,7 @@ public:
 
 private:
 	int Score;
-
+	int Bullets;
+	int Pulls;
+	float Timer;
 };
